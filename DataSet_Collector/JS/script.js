@@ -4,24 +4,39 @@ var classes = []; // list of classes
 var text = ""
 var uploadedModel = false;
 
-console.log("Training Page: For training your custom sign langauge model");
+// console.log("Training Page: For training your custom sign langauge model");
 
+function getCurrentDateTimeFormatted() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const hours = currentDate.getHours().toString().padStart(2, '0');
+    const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+    const seconds = currentDate.getSeconds().toString().padStart(2, '0');
 
-const start = async() => {
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+    return formattedDateTime;
+}
+
+const currentDateTimeFormatted = getCurrentDateTimeFormatted();
+
+const start = async () => {
     const trainingCards = document.getElementById("training-cards")
     const predictions = document.getElementById("predictions")
     const confidence = document.getElementById("confidence")
 
-    const createKNNClassifier = async() => {
-        console.log('Loading KNN Classifier');
+    const createKNNClassifier = async () => {
+        // console.log('Loading KNN Classifier');
         return await knnClassifier.create();
     };
-    const createMobileNetModel = async() => {
-        console.log('Loading Mobilenet Model');
+    const createMobileNetModel = async () => {
+        // console.log('Loading Mobilenet Model');
         return await mobilenet.load();
     };
-    const createWebcamInput = async() => {
-        console.log('Loading Webcam Input');
+    const createWebcamInput = async () => {
+        // console.log('Loading Webcam Input');
         const webcamElement = await document.getElementById('webcam');
         return await tf.data.webcam(webcamElement);
     };
@@ -61,9 +76,8 @@ const start = async() => {
     const initializeElements = () => {
         const inputClassName = document.getElementById("inputClassName").value
         document.getElementById('add-button').addEventListener('click', () => addClass(inputClassName));
-        // document.getElementById('btnSpeak').addEventListener('click', () => speak());
         document.getElementById('load_button').addEventListener('change', (event) => uploadModel(knnClassifierModel, event));
-        document.getElementById('save_button').addEventListener('click', async() => downloadModel(knnClassifierModel));
+        document.getElementById('save_button').addEventListener('click', async () => downloadModel(knnClassifierModel));
 
 
     };
@@ -81,21 +95,22 @@ const start = async() => {
         //    console.log(jsonModel);
 
         let downloader = document.createElement('a');
-        downloader.download = "model.json";
+        downloader.download = `model_${currentDateTimeFormatted}.json`; // Use backticks (`) for template literal
         downloader.href = 'data:text/text;charset=utf-8,' + encodeURIComponent(jsonModel);
         document.body.appendChild(downloader);
         downloader.click();
         downloader.remove();
+
     };
 
 
-    const uploadModel = async(classifierModel, event) => {
+    const uploadModel = async (classifierModel, event) => {
         uploadedModel = true;
         let inputModel = event.target.files;
-        console.log("Uploading");
+        // console.log("Uploading");
         let fr = new FileReader();
         if (inputModel.length > 0) {
-            fr.onload = async() => {
+            fr.onload = async () => {
                 var dataset = fr.result;
                 var tensorObj = JSON.parse(dataset);
 
@@ -104,21 +119,21 @@ const start = async() => {
                     classes.push(key);
                 });
                 classifierModel.setClassifierDataset(tensorObj);
-                console.log("Classifier has been set up! Congrats! ");
+                // console.log("Classifier has been set up! Congrats! ");
             };
         }
         await fr.readAsText(inputModel[0]);
-        console.log("Uploaded");
+        // console.log("Uploaded");
         //    console.log(classes)
     };
 
-    const downloadModel = async(classifierModel) => {
+    const downloadModel = async (classifierModel) => {
         saveClassifier(classifierModel);
     };
 
 
 
-    const addDatasetClass = async(classId) => {
+    const addDatasetClass = async (classId) => {
 
         // Capture an image from the web camera.
         const img = await webcamInput.capture();
@@ -144,8 +159,8 @@ const start = async() => {
 
 
 
-    const imageClassificationWithTransferLearningOnWebcam = async() => {
-        console.log("Machine Learning on the web is ready");
+    const imageClassificationWithTransferLearningOnWebcam = async () => {
+        // console.log("Machine Learning on the web is ready");
         while (true) {
             if (knnClassifierModel.getNumClasses() > 0) {
                 const img = await webcamInput.capture();
@@ -179,31 +194,35 @@ const start = async() => {
     };
 
 
-    var btnSpeak = document.querySelector('#btnSpeak');
-
-    btnSpeak.addEventListener('click', () => {
-        var msg = new SpeechSynthesisUtterance();
-        msg.text = predictions.innerHTML;
-        window.speechSynthesis.speak(msg);
-    });
-
-
 
     await initializeElements();
     await imageClassificationWithTransferLearningOnWebcam();
 };
 
+function fadeSVG() {
+    const svg = document.getElementById("svglogo");
+    let opacity = 1;
+    let fadingOut = true;
+
+    const fadeInterval = setInterval(() => {
+        if (fadingOut) {
+            opacity -= 0.01; // Adjust the decrement value for slower or faster fading
+            svg.style.opacity = opacity;
+            if (opacity <= 0) {
+                fadingOut = false;
+            }
+        } else {
+            opacity += 0.01; // Adjust the increment value for slower or faster fading
+            svg.style.opacity = opacity;
+            if (opacity >= 1) {
+                fadingOut = true;
+            }
+        }
+    }, 20); // Adjust interval for smoother or choppier animation
+}
+
+
 window.onload = () => {
     start();
-};
-
-function fadeSVG() {
-    const svg = document.getElementById("lsvg");
-    setInterval(() => {
-      // Toggle opacity between 0 and 1
-      svg.style.opacity = (svg.style.opacity === "0") ? "1" : "0";
-    }, 980); // Change fade duration as needed
-  }
-
-  // Call the fadeSVG function when the page loads
-  window.onload = fadeSVG;
+    fadeSVG();
+}
