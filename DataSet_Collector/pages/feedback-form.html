@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>GestureVoice's Feedback</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles/feedback-form.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+  <div class="center">
+    <div class="container">
+
+      <h1 class="title">Have an idea ☝️</h1>
+
+      <div class="form form__1">
+        <label for="name" class="form__label">Full name</label>
+        <input type="text" name="Full_Name" class="form__input" placeholder="" id="name" required>
+      </div>
+
+      <div class="form form__2">
+        <label for="email" class="form__label">Email address</label>
+        <input type="email" class="form__input" name="email" placeholder="" id="email" value="" required>
+      </div>
+
+      <div class="form form__3">
+        <label for="message" class="form__label">Your message</label>
+        <input type="text" class="form__input" name="message" placeholder="" id="message" required>
+      </div>
+
+      <button class="form__btn">
+        <span class="form__btn--visible">
+          <p>Submit</p>
+          <i class="material-icons">arrow_forward</i>
+        </span>
+        <span class="form__btn--invisible">Message sent!</span>
+      </button>
+
+      <div class="container-mail">
+        <div class="mail">
+          <div class="mail__back"></div>
+          <div class="mail__top"></div>
+          <div class="mail__letter">
+            <div class="mail__letter-square">
+            </div>
+            <div class="mail__letter-lines">
+            </div>
+          </div>
+          <div class="mail__left"></div>
+          <div class="mail__right"></div>
+          <div class="mail__bottom"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="center">
+    <div class="container">
+
+      <h1 class="title">Contact first ☝️</h1>
+
+      <div class="form form__1">
+        <label for="name" class="form__label">Full name*</label>
+        <input type="text" class="form__input" placeholder="" id="name" required>
+      </div>
+
+      <div class="form form__2">
+        <label for="email" class="form__label">Email address *</label>
+        <input type="email" class="form__input" placeholder="" id="email" required
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+
+      </div>
+
+      <div class="form form__3">
+        <label for="message" class="form__label">Your message *</label>
+        <input type="text" class="form__input" placeholder="" id="message" required>
+      </div>
+
+      <button class="form__btn shake">
+        <span class="form__btn--visible">
+          <p>Submit</p>
+          <i class="material-icons">arrow_forward</i>
+        </span>
+        <span class="form__btn--invisible">Message sent!</span>
+      </button>
+
+      <div class="container-mail">
+        <div class="mail">
+          <div class="mail__back"></div>
+          <div class="mail__top"></div>
+          <div class="mail__letter">
+            <div class="mail__letter-square">
+            </div>
+            <div class="mail__letter-lines">
+            </div>
+          </div>
+          <div class="mail__left"></div>
+          <div class="mail__right"></div>
+          <div class="mail__bottom"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../js/feedback-form.js" async defer></script>
+</body>
+
+</html>
