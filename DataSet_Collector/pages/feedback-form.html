@@ -20,28 +20,30 @@
 
       <h1 class="title">Have an idea ☝️</h1>
 
-      <div class="form form__1">
-        <label for="name" class="form__label">Full name</label>
-        <input type="text" name="Full_Name" class="form__input" placeholder="" id="name" required>
-      </div>
+      <form action="https://formspree.io/f/mlezprby" method="POST">
+        <div class="form form__1">
+          <label for="name" class="form__label">Full name</label>
+          <input type="text" name="Full_Name" class="form__input" placeholder="" id="name" required>
+        </div>
 
-      <div class="form form__2">
-        <label for="email" class="form__label">Email address</label>
-        <input type="email" class="form__input" name="email" placeholder="" id="email" value="" required>
-      </div>
+        <div class="form form__2">
+          <label for="email" class="form__label">Email address</label>
+          <input type="email" class="form__input" name="email" placeholder="" id="email" value="" required>
+        </div>
 
-      <div class="form form__3">
-        <label for="message" class="form__label">Your message</label>
-        <input type="text" class="form__input" name="message" placeholder="" id="message" required>
-      </div>
+        <div class="form form__3">
+          <label for="message" class="form__label">Your message</label>
+          <input type="text" class="form__input" name="message" placeholder="" id="message" required>
+        </div>
 
-      <button class="form__btn">
-        <span class="form__btn--visible">
-          <p>Submit</p>
-          <i class="material-icons">arrow_forward</i>
-        </span>
-        <span class="form__btn--invisible">Message sent!</span>
-      </button>
+        <button type="submit" class="form__btn">
+          <span class="form__btn--visible">
+            <p>Submit</p>
+            <i class="material-icons">arrow_forward</i>
+          </span>
+          <span class="form__btn--invisible">Message sent!</span>
+        </button>
+      </form>
 
       <div class="container-mail">
         <div class="mail">
@@ -66,30 +68,30 @@
 
       <h1 class="title">Contact first ☝️</h1>
 
-      <div class="form form__1">
-        <label for="name" class="form__label">Full name*</label>
-        <input type="text" class="form__input" placeholder="" id="name" required>
-      </div>
+      <form action="https://formspree.io/f/mlezprby" method="POST">
+        <div class="form form__1">
+          <label for="name" class="form__label">Full name*</label>
+          <input type="text" class="form__input" placeholder="" id="name" name="Full_Name" required>
+        </div>
 
-      <div class="form form__2">
-        <label for="email" class="form__label">Email address *</label>
-        <input type="email" class="form__input" placeholder="" id="email" required
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        <div class="form form__2">
+          <label for="email" class="form__label">Email address *</label>
+          <input type="email" class="form__input" placeholder="" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        </div>
 
-      </div>
+        <div class="form form__3">
+          <label for="message" class="form__label">Your message *</label>
+          <input type="text" class="form__input" placeholder="" id="message" name="message" required>
+        </div>
 
-      <div class="form form__3">
-        <label for="message" class="form__label">Your message *</label>
-        <input type="text" class="form__input" placeholder="" id="message" required>
-      </div>
-
-      <button class="form__btn shake">
-        <span class="form__btn--visible">
-          <p>Submit</p>
-          <i class="material-icons">arrow_forward</i>
-        </span>
-        <span class="form__btn--invisible">Message sent!</span>
-      </button>
+        <button type="submit" class="form__btn shake">
+          <span class="form__btn--visible">
+            <p>Submit</p>
+            <i class="material-icons">arrow_forward</i>
+          </span>
+          <span class="form__btn--invisible">Message sent!</span>
+        </button>
+      </form>
 
       <div class="container-mail">
         <div class="mail">

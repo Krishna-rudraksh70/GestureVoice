@@ -7,8 +7,12 @@ function addClass() {
     document.body.classList.add("sent");
     setTimeout(function() {
         document.body.classList.remove("sent");
+        // Reset the form fields
+        nameInput.value = '';
+        messageTextarea.value = '';
     }, 3000); // 3000 milliseconds = 3 seconds
   }
 }
 
+var sendLetter = document.getElementById("sendLetter");
 sendLetter.addEventListener("click", addClass);

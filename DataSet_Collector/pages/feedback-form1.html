@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,30 +10,41 @@
     </head>
     <body>
         <div class="wrapper centered">
-          <article class="letter">
-            <div class="side">
-              <h1>Have an idea ☝️</h1>
-              <p>
-                <textarea name="message" placeholder="Your message..." required></textarea>
-              </p>
-            </div>
-            <div class="side">
-              <p>
-                <input type="text" name="name" placeholder="Name" required>
-              </p>
-              <p>
-                <input type="email" name="email" placeholder="Your email" >
-              </p>
-              <p>
-                <button id="sendLetter">Send</button>
-              </p>
-            </div>
-          </article>
+          <form id="feedbackForm" action="https://formspree.io/f/mlezprby" method="POST">
+            <article class="letter">
+              <div class="side">
+                <h1>Have an idea ☝️</h1>
+                <p>
+                  <textarea name="message" placeholder="Your message..." required></textarea>
+                </p>
+              </div>
+              <div class="side">
+                <p>
+                  <input type="text" name="name" placeholder="Name" required>
+                </p>
+                <p>
+                  <input type="email" name="email" placeholder="Your email" >
+                </p>
+                <p>
+                  <button type="submit" id="sendLetter">Send</button>
+                </p>
+              </div>
+            </article>
+          </form>
           <div class="envelope front"></div>
           <div class="envelope back"></div>
         </div>
         <p class="result-message centered">Thank you for your message</p>
         
         <script src="../js/feedback-form1.js" async defer></script>
+        <script>
+            // Prevent form submission from redirecting to Formspree thank you page
+            document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+                // Optionally, you can add your own submission handling here
+                // For example, you can use Fetch API to send form data asynchronously
+                // and then display a custom thank you message.
+            });
+        </script>
     </body>
 </html>

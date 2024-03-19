@@ -47,6 +47,12 @@ body {
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
 }
 
+form button {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 35rem));
+  text-align: center;
+}
+
 .shake {
   animation: shake 0.3s ease-in-out infinite alternate;
 }
@@ -79,6 +85,10 @@ body {
   background-color: #ff4d4d; /* Change the button color to red */
 }
 
+.form__btn {
+  padding: 10px 20px; 
+  font-size: 18rem; 
+}
 
 @media only screen and (max-width: 790px) {
   .container {
