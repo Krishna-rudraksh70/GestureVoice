@@ -42,6 +42,7 @@ const Home = () => {
           )}
           startInLoadingState
           onError={handleWebViewError}
+          style={{ marginTop: 25 }}
         />
       )}
     </View>
