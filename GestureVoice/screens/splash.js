@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   video: {
     alignSelf: 'center',
-    width: width*1.04,
+    width: width*1,
     height: height*1.04,
   },
   buttons: {
