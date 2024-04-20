@@ -1,52 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 import WebView from 'react-native-webview';
-import Splash from './Splash';
-import ErrorPage from './Error';
-
-const { width, height } = Dimensions.get('window');
 
 const Home = () => {
-  const [showSplash, setShowSplash] = useState(true);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 1800);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleWebViewError = () => {
-    setError(true);
-  };
-
-  const handleRetry = () => {
-    setError(false);
-  };
-
   return (
-    <View style={{ flex: 1 }}>
-      {showSplash ? (
-        <Splash />
-      ) : error ? (
-        <ErrorPage onRetry={handleRetry} />
-      ) : (
-        <WebView
-          source={{ uri: 'https://sign.mt/' }}
-          renderLoading={() => (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <ActivityIndicator size="large" color="#0000ff" />
-            </View>
-          )}
-          startInLoadingState
-          onError={handleWebViewError}
-          style={{ marginTop: 25 }}
-        />
+    <View style={styles.container}>
+      <WebView
+        source={{ uri: 'https://sign.mt/' }}
+        style={styles.webview}
+        onError={() => setError(true)}
+      />
+      {error && (
+        <View style={styles.instructionsContainer}>
+          <Text style={styles.instructions}>Oops! Something went wrong.</Text>
+          <Text style={styles.instructions}>- Check your internet connection.</Text>
+          <Text style={styles.instructions}>- Restart your internet connection or router.</Text>
+          <Text style={styles.instructions}>- If the issue persists, please contact us at{' '}
+            <Text style={styles.emailLink}>gesturevoice.proj23@ipec.org.in</Text>
+          </Text>
+        </View>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  webview: {
+    flex: 1,
+    marginTop: 25,
+  },
+  instructionsContainer: {
+    position: 'absolute',
+    bottom: 50,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 10,
+    paddingVertical: 10,
+  },
+  instructions: {
+    color: 'white',
+    marginBottom: 5,
+  },
+  emailLink: {
+    color: 'white',
+    textDecorationLine: 'underline',
+  },
+});
 
 export default Home;
