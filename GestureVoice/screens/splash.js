@@ -9,7 +9,6 @@ export default function Splash() {
   const [status, setStatus] = React.useState({});
 
   React.useEffect(() => {
-    // Play the video once the component mounts
     if (video && video.current) {
       video.current.playAsync();
     }
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
   video: {
     alignSelf: 'center',
     width: width*1,
-    height: height*1.04,
+    height: height*1.1,
   },
   buttons: {
     flexDirection: 'row',

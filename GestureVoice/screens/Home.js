@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   },
   webview: {
     flex: 1,
-    marginTop: 25,
   },
   instructionsContainer: {
     position: 'absolute',
