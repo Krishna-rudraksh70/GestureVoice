@@ -1,0 +1,16 @@
+.logo img {
+  @apply w-12;
+  @apply mr-2;
+}
+
+.navbar {
+    @apply flex justify-between items-center py-4 px-6 bg-gray-900 text-white;
+  }
+
+.nav-link {
+  @apply text-white text-lg font-medium px-4 py-2 rounded transition duration-300 ease-in-out;
+}
+
+.nav-link:hover {
+  @apply bg-gray-800;
+}
