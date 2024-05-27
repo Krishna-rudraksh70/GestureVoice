@@ -41,6 +41,7 @@ const Navbar = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
   },
   webview: {
     flex: 1,
+    marginTop: 25,
   },
   instructionsContainer: {
     position: 'absolute',
@@ -95,10 +97,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: 50, // Adjust height as needed
+    height: 57, 
     backgroundColor: 'white',
     elevation: 10, // Adds shadow on Android
-    zIndex: 1, // Ensure the tab bar is on top
+    zIndex: 1,
   },
 });
 
