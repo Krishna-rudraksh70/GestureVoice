@@ -18,17 +18,18 @@ const App = () => {
   }, []);
 
   const handleOnboardingComplete = () => {
-    setShowOnboarding(false); // Hide onboarding screen after completion
-    setShowHome(true); // Show home page after onboarding
+    setShowOnboarding(false);
+    setShowHome(true);
   };
 
   return (
     <View style={{ flex: 1 }}>
       {showSplash && <Splash setShowSplash={setShowSplash} />}
-      {!showHome && !showSplash && showOnboarding && (
+      {!showSplash && showOnboarding && (
         <Onboarding onOnboardingComplete={handleOnboardingComplete} />
       )}
-      {!showSplash && !showOnboarding && <Home />}
+      {!showSplash && !showOnboarding && showHome && <Home />}
+      {showHome}
     </View>
   );
 };

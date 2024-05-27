@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import WebView from 'react-native-webview';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Setting from './Setting';
+
+const Tab = createBottomTabNavigator();
 
 const Home = () => {
   const [error, setError] = useState(false);
@@ -23,6 +29,38 @@ const Home = () => {
         </View>
       )}
     </View>
+  );
+};
+
+const HomeScreen = () => {
+  return <Home />;
+};
+
+const Navbar = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused ? 'ios-home' : 'ios-home-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-settings' : 'ios-settings-outline';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+          tabBarStyle: styles.tabBarStyle, // Apply custom styles
+        })}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={Setting} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
@@ -49,6 +87,19 @@ const styles = StyleSheet.create({
     color: 'white',
     textDecorationLine: 'underline',
   },
+  flexContainer: {
+    flex: 1,
+  },
+  tabBarStyle: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 50, // Adjust height as needed
+    backgroundColor: 'white',
+    elevation: 10, // Adds shadow on Android
+    zIndex: 1, // Ensure the tab bar is on top
+  },
 });
 
-export default Home;
+export default Navbar;
