@@ -53,7 +53,7 @@ const Navbar = () => {
 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: 'tomato',
+          tabBarActiveTintColor: '#03BCD1',
           tabBarInactiveTintColor: 'gray',
           tabBarStyle: styles.tabBarStyle, // Apply custom styles
         })}

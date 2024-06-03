@@ -68,7 +68,6 @@ const start = async () => {
 
         document.getElementById(identity.toString()).addEventListener('click', () => addDatasetClass(identity));
         inputClassName.value = ""
-
         //    console.log(classes)
     }
 
