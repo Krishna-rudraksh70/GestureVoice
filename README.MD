@@ -1,12 +1,9 @@
+# Gesture Voice: Text to Sign Language Gesture Converter App
 
-
-Gesture Voice: Text to Sign Language Gesture Converter App
-
-
-Overview
+### Overview
 This app converts text input into sign language gestures, providing accessibility for communication in sign language across multiple languages. It uses advanced machine learning models and computer vision algorithms to generate accurate gestures corresponding to the input text.
 
-Features
+### Features
 1. Multi-Language Support: Converts text to sign language gestures in multiple languages.
 2. Accurate Gesture Generation: Utilizes machine learning models for precise gesture creation.
 3. User-Friendly Interface: Intuitive design for easy input and viewing of sign language gestures.
@@ -14,11 +11,9 @@ Features
 
 
 # Sign Language Recognition with LSTM Model
-
 Welcome to the Sign Language Recognition project using Long Short-Term Memory (LSTM) models. This repository contains all the necessary files and code to perform sign language recognition using a deep learning approach.
 
 ## Repository Overview
-
 This repository is structured as follows:
 
 - lstm/: This folder contains all LSTM-related code and files.
