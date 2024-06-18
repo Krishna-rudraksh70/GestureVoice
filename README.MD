@@ -71,7 +71,8 @@ Once the setup is complete and the notebook is running, you can use the system t
 ## Contributions
 
 Contributions to this project are welcome. Feel free to fork the repository, make improvements, and submit pull requests.
-[Krishna]()
+
+[Krishna](https://github.com/Krishna-rudraksh70)
 [Navya](https://github.com/Navya-Malik)
 
 ## License
