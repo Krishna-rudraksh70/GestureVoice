@@ -34,7 +34,7 @@ Ensure you have the following libraries installed before running the notebooks:
 You can install these libraries using pip:
 
 ```bash
-pip install opencv-python mediapipe matplotlib pandas numpy
+pip install opencv-python mediapipe matplotlib pandas numpy```
 
 
 ## Setup Instructions
@@ -42,13 +42,13 @@ pip install opencv-python mediapipe matplotlib pandas numpy
 1. *Clone the Repository*: Clone the repository to your local machine using the following command:
 
     ```bash
-    git clone https://github.com/Krishna-rudraksh70/GestureVoice.git
+    git clone https://github.com/Krishna-rudraksh70/GestureVoice.git```
     
 
 2. *Navigate to the LSTM Folder*: Change your directory to the lstm folder:
 
     ```bash
-    cd GestureVoice/lstm
+    cd GestureVoice/lstm```
     
 
 3. *Run the Jupyter Notebook*: Open the Jupyter notebook in the lstm folder and execute the code cells one by one. This will guide you through the process of loading the data, training the model, and running the predictions.
